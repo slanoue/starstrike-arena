@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Starstrike Arena</title>
+    <title>Starship Arena</title>
     <style>
         body {
             margin: 0;
@@ -50,6 +50,8 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            border: 2px solid transparent; /* Add border to ensure it's not cut off */
+            box-sizing: border-box; /* Include border in element's total width and height */
         }
         .intro-text {
             width: 100%;
@@ -60,22 +62,25 @@
             font-family: 'Courier New', monospace;
             font-size: 18px;
         }
+        .text-highlight {
+            background-color: rgb(255, 255, 0, 40%);
+        }
         .rules-controls-container {
             display: flex;
             justify-content: center;
-            width: 80%;
-            max-width: 1000px;
+            width: 100%;
+            max-width: 700px;
             margin: 20px auto;
             gap: 40px;
         }
-
         .column {
             flex: 1;
             text-align: left;
             color: white;
             font-family: 'Courier New', monospace;
+            border: 1px solid white;
+            padding: 12px 12px;
         }
-
         .column h2 {
             margin-bottom: 10px;
             font-size: 24px;
@@ -114,6 +119,10 @@
             cursor: pointer;
             border-radius: 4px;
             background-color: #4F3AF6;
+            border: 2px solid transparent; /* Add border to ensure it's not cut off */
+        }
+        .input-button-container button:hover {
+            background-color: #3A2EB8; /* Hover color */
         }
         .input-button-container span {
             color: #ffffff;
@@ -124,39 +133,31 @@
     <canvas id="gameCanvas"></canvas>
     <div id="start-screen">
         <pre>
-            
-░██████╗████████╗░█████╗░██████╗░░██████╗████████╗██████╗░██╗██╗░░██╗███████╗
-██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██║██║░██╔╝██╔════╝
-╚█████╗░░░░██║░░░███████║██████╔╝╚█████╗░░░░██║░░░██████╔╝██║█████═╝░█████╗░░
-░╚═══██╗░░░██║░░░██╔══██║██╔══██╗░╚═══██╗░░░██║░░░██╔══██╗██║██╔═██╗░██╔══╝░░
-██████╔╝░░░██║░░░██║░░██║██║░░██║██████╔╝░░░██║░░░██║░░██║██║██║░╚██╗███████╗
-╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝╚═╝░░╚═╝╚══════╝
-
-░█████╗░██████╗░███████╗███╗░░██╗░█████╗░
-██╔══██╗██╔══██╗██╔════╝████╗░██║██╔══██╗
-███████║██████╔╝█████╗░░██╔██╗██║███████║
-██╔══██║██╔══██╗██╔══╝░░██║╚████║██╔══██║
-██║░░██║██║░░██║███████╗██║░╚███║██║░░██║
-╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚═╝░░╚══╝╚═╝░░╚═╝
+░██████╗████████╗░█████╗░██████╗░░██████╗██╗░░██╗██╗██████╗░  ░█████╗░██████╗░███████╗███╗░░██╗░█████╗░
+██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝██║░░██║██║██╔══██╗  ██╔══██╗██╔══██╗██╔════╝████╗░██║██╔══██╗
+╚█████╗░░░░██║░░░███████║██████╔╝╚█████╗░███████║██║██████╔╝  ███████║██████╔╝█████╗░░██╔██╗██║███████║
+░╚═══██╗░░░██║░░░██╔══██║██╔══██╗░╚═══██╗██╔══██║██║██╔═══╝░  ██╔══██║██╔══██╗██╔══╝░░██║╚████║██╔══██║
+██████╔╝░░░██║░░░██║░░██║██║░░██║██████╔╝██║░░██║██║██║░░░░░  ██║░░██║██║░░██║███████╗██║░╚███║██║░░██║
+╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝╚═╝╚═╝░░░░░  ╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚═╝░░╚══╝╚═╝░░╚═╝
 </pre>
         <div class="intro-text">
-            <p>Welcome! Starstrike Arena is a <strong>2D space shooter game.</strong> The goal is to destroy as many enemy ships as possible in 2 minutes to get the high score.</p>
+            <p>Welcome! Starship Arena is a <strong><span class="text-highlight">2D space shooter game</span></strong>. The goal is to destroy as many enemy ships as possible in 2 minutes to get the high score.</p>
         </div>
         <div class="rules-controls-container">
             <div class="column">
                 <h2>Game Rules:</h2>
                 <ul>
-                    <li>Kill as many enemy spaceships as you can in 2 minutes.</li>
-                    <li>Getting shot or running into enemies does 10 damage.</li>
-                    <li>Each kill gives you 1 point.</li>
+                    <li><span class="text-highlight"><strong>Destroy </strong></span> as many enemy ships as you can in 2 minutes.</li>
+                    <li><span class="text-highlight"><strong>You start with 100 HP.</strong></span> Each hit you take deals 10 damage.</strong></li>
+                    <li><span class="text-highlight"><strong>Each kill</strong></span> gives you 1 point.</li>
                 </ul>
             </div>
             <div class="column">
                 <h2>Controls:</h2>
                 <ul>
-                    <li>WASD: Move your ship</li>
-                    <li>Q + E: Rotate ship</li>
-                    <li>Spacebar: Shoot laser</li>
+                    <li><span class="text-highlight"><strong>WASD:</strong></span> Move your ship around the screen</li>
+                    <li><span class="text-highlight"><strong>Q + E:</strong></span> Rotate your ship different directions</li>
+                    <li><span class="text-highlight"><strong>Spacebar:</strong></span> Shoot laser blaster</li>
                 </ul>
             </div>
         </div>
@@ -593,6 +594,10 @@
 
         function startGameWithName() {
             const playerName = document.getElementById('player-name').value.trim();
+            if (!playerName) {
+                alert("Please enter your ship name.");
+                return;
+            }
             initGame(playerName);
             gameLoop();
         }

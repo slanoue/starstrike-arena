@@ -16,8 +16,14 @@ You can play the game here: https://slanoue.github.io/starstrike-arena/
 
 ---
 
-# How to Setup Locally
+## How to Setup Locally
 
 - Clone repo
 - Open `index.html` in browser
 - That's it! You can play the full game from there
+
+---
+
+## ACSII Art
+
+Use https://fsymbols.com/generators/carty/ to create ASCII art for the name
