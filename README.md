@@ -1,5 +1,5 @@
-# Starstrike Arena
-Welcome! Starstrike Arena is a 2D space shooter game. The goal is to destroy as many enemy ships as possible in 2 minutes to get the high score.
+# Starship Arena
+Welcome! Starship Arena is a 2D space shooter game. The goal is to destroy as many enemy ships as possible in 2 minutes to get the high score.
 
 You can play the game here: https://slanoue.github.io/starstrike-arena/
 
