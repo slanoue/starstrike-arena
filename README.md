@@ -13,3 +13,11 @@ You can play the game here: https://slanoue.github.io/starstrike-arena/
 - Q + E: Rotate ship
 - Spacebar: Shoot laser
 - Your ship name
+
+---
+
+# How to Setup Locally
+
+- Clone repo
+- Open `index.html` in browser
+- That's it! You can play the full game from there
