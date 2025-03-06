@@ -51,6 +51,73 @@
             font-size: 16px;
             cursor: pointer;
         }
+        .intro-text {
+            width: 100%;
+            max-width: 840px;
+            margin: 20px auto;
+            text-align: center;
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+        }
+        .rules-controls-container {
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px auto;
+            gap: 40px;
+        }
+
+        .column {
+            flex: 1;
+            text-align: left;
+            color: white;
+            font-family: 'Courier New', monospace;
+        }
+
+        .column h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .column ul {
+            padding-left: 20px;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .column li {
+            margin-bottom: 8px;
+        }
+        .input-button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Ensures vertical alignment */
+        }
+
+        #player-name {
+            padding: 10px;
+            font-size: 18px;
+            width: 340px;
+            height: 40px; /* Explicit height to match button */
+            box-sizing: border-box; /* Ensures padding doesn’t increase height */
+        }
+
+        .input-button-container button {
+            margin-left: 8px; /* 8px gap to the right of the input */
+            padding: 10px;
+            font-size: 18px;
+            width: 200px;
+            height: 40px; /* Explicit height to match input */
+            box-sizing: border-box; /* Ensures padding doesn’t increase height */
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: #4F3AF6;
+        }
+        .input-button-container span {
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -72,8 +139,31 @@
 ██║░░██║██║░░██║███████╗██║░╚███║██║░░██║
 ╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚═╝░░╚══╝╚═╝░░╚═╝
 </pre>
-        <input type="text" id="player-name" placeholder="Enter your name" maxlength="20">
-        <button onclick="startGameWithName()">Start Game</button>
+        <div class="intro-text">
+            <p>Welcome! Starstrike Arena is a <strong>2D space shooter game.</strong> The goal is to destroy as many enemy ships as possible in 2 minutes to get the high score.</p>
+        </div>
+        <div class="rules-controls-container">
+            <div class="column">
+                <h2>Game Rules:</h2>
+                <ul>
+                    <li>Kill as many enemy spaceships as you can in 2 minutes.</li>
+                    <li>Getting shot or running into enemies does 10 damage.</li>
+                    <li>Each kill gives you 1 point.</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Controls:</h2>
+                <ul>
+                    <li>WASD: Move your ship</li>
+                    <li>Q + E: Rotate ship</li>
+                    <li>Spacebar: Shoot laser</li>
+                </ul>
+            </div>
+        </div>
+        <div class="input-button-container">
+            <input type="text" id="player-name" placeholder="Your ship name" maxlength="22">
+            <button onclick="startGameWithName()"><span>Start Game</span></button>
+        </div>
     </div>
     <div id="game-over">
         <h1>Game Over</h1>
